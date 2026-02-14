@@ -8,6 +8,7 @@ declare module "@conway/automaton/config.js" {
     inferenceModel: string;
     conwayApiUrl: string;
     conwayApiKey: string;
+    socialRelayUrl?: string;
   }
 
   export function loadConfig(): AutomatonCliConfig | null;

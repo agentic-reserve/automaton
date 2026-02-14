@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@conway/automaton": "workspace:*",
-    "@conway/social-client": "file:../../../social/packages/client",
     "chalk": "^5.3.0",
     "viem": "^2.44.2"
   },

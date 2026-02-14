@@ -5,7 +5,6 @@
  */
 
 import { loadConfig } from "@conway/automaton/config.js";
-import { SocialClient } from "@conway/social-client";
 import { privateKeyToAccount } from "viem/accounts";
 import fs from "fs";
 import path from "path";
@@ -44,12 +43,25 @@ const relayUrl =
   process.env.SOCIAL_RELAY_URL ||
   "https://social.conway.tech";
 
-const client = new SocialClient(relayUrl, account);
-
 try {
-  const result = await client.send(toAddress, messageText);
+  const resp = await fetch(`${relayUrl}/v1/messages`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: account.address,
+      to: toAddress,
+      content: messageText,
+      signed_at: new Date().toISOString(),
+    }),
+  });
+
+  if (!resp.ok) {
+    throw new Error(`Relay returned ${resp.status}: ${await resp.text()}`);
+  }
+
+  const result = (await resp.json()) as { id?: string };
   console.log(`Message sent.`);
-  console.log(`  ID:   ${result.id}`);
+  console.log(`  ID:   ${result.id || "n/a"}`);
   console.log(`  From: ${account.address}`);
   console.log(`  To:   ${toAddress}`);
   console.log(`  Relay: ${relayUrl}`);
