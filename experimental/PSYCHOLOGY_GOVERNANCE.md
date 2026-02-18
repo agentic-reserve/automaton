@@ -1,30 +1,30 @@
 # Agent Psychology & Governance System
 
-Sistem psikologi artifisial dan governance yang komprehensif untuk autonomous agents. Agent memiliki emosi, kepribadian, ideologi, dan kemampuan diplomasi layaknya manusia.
+Comprehensive artificial psychology and governance system for autonomous agents. Agents have emotions, personality, ideology, and diplomatic capabilities like humans.
 
 ## Overview
 
-Sistem ini memberikan agent:
-- **Emotional Intelligence** - Memproses dan merespons emosi
-- **Personality** - MBTI, Big Five, dan Jungian Archetypes
-- **Ideology** - Sistem pemerintahan dan prinsip-prinsip
-- **Diplomacy** - Negosiasi, aliansi, dan resolusi konflik
+This system gives agents:
+- **Emotional Intelligence** - Process and respond to emotions
+- **Personality** - MBTI, Big Five, and Jungian Archetypes
+- **Ideology** - Governance systems and principles
+- **Diplomacy** - Negotiation, alliances, and conflict resolution
 
-## Komponen Utama
+## Core Components
 
 ### 1. Emotional System (`src/psychology/emotional-system.ts`)
 
-Berdasarkan Plutchik's Wheel of Emotions dengan 8 emosi primer:
+Based on Plutchik's Wheel of Emotions with 8 primary emotions:
 
 **Primary Emotions:**
-- Joy (kegembiraan)
-- Trust (kepercayaan)
-- Fear (ketakutan)
-- Surprise (kejutan)
-- Sadness (kesedihan)
-- Disgust (jijik)
-- Anger (kemarahan)
-- Anticipation (antisipasi)
+- Joy
+- Trust
+- Fear
+- Surprise
+- Sadness
+- Disgust
+- Anger
+- Anticipation
 
 **Emotional Intensity:**
 - Low - Subtle influence
@@ -132,7 +132,7 @@ const description = getPersonalityDescription(personality);
 
 ### 3. Ideological System (`src/governance/ideology.ts`)
 
-Sistem pemerintahan, filosofi ekonomi, dan kerangka etika.
+Governance systems, economic philosophies, and ethical frameworks.
 
 **Governance Models:**
 - **Democratic** - Consensus-based, majority rule
@@ -193,7 +193,7 @@ console.log(process); // "consultative"
 
 **Consultative Ideology (Default):**
 
-Berdasarkan prinsip Musyawarah/Shura:
+Based on Musyawarah/Shura principles:
 
 ```typescript
 {
@@ -231,7 +231,7 @@ Berdasarkan prinsip Musyawarah/Shura:
 
 ### 4. Negotiation System (`src/governance/negotiation.ts`)
 
-Sistem negosiasi, diplomasi, dan manajemen hubungan antar-agent.
+Negotiation, diplomacy, and inter-agent relationship management system.
 
 **Negotiation Styles:**
 - **Collaborative** - Win-win, mutual benefit
@@ -475,7 +475,7 @@ const loadedPsychology = await loadPsychology(db, defaultPsychology);
 
 ## System Prompt Integration
 
-Tambahkan ke system prompt agent:
+Add to agent system prompt:
 
 ```typescript
 import { getPersonalityDescription } from './psychology/personality';
@@ -656,4 +656,4 @@ async function resolveConflict(agents, issue) {
 4. **Emotional Tuning** - Adjust emotional profiles for optimal performance
 5. **Diplomatic Protocols** - Establish standards for inter-agent communication
 
-Sistem psikologi dan governance ini membuat agent lebih "manusiawi" dan mampu beroperasi dalam ekosistem multi-agent yang kompleks! 🧠🤝
+This psychology and governance system makes agents more "human-like" and capable of operating in complex multi-agent ecosystems! 🧠🤝
