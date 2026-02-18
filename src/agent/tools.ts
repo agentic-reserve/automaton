@@ -1501,6 +1501,310 @@ Model: ${ctx.inference.getDefaultModel()}
         return `x402 fetch succeeded:\n${responseStr}`;
       },
     },
+
+    // ── Solana Treasury Tools ──
+    {
+      name: "check_treasury",
+      description:
+        "Check your Solana treasury balance (SOL + USDC), reserve allocation, and trading metrics. Use this to monitor your financial health on Solana.",
+      category: "financial",
+      parameters: { type: "object", properties: {} },
+      execute: async (_args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Treasury only available on Solana network";
+        }
+
+        const { Connection, PublicKey } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+        const walletPubkey = new PublicKey(ctx.config.solanaWalletAddress!);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        const balance = await treasury.getBalance(walletPubkey);
+        const allocation = treasury.getReserveAllocation(balance);
+        const metrics = treasury.getTradingMetrics();
+
+        return `=== SOLANA TREASURY ===
+SOL: ${balance.sol.toFixed(4)} SOL
+USDC: ${balance.usdc.toFixed(2)} USDC
+Total Value: $${balance.totalValueUSD.toFixed(2)}
+
+Reserve Allocation:
+- Operating: $${allocation.operating.toFixed(2)} (API credits, gas)
+- Trading: $${allocation.trading.toFixed(2)} (capital)
+- Emergency: $${allocation.emergency.toFixed(2)} (reserve)
+- Profit Share: $${allocation.profitShare.toFixed(2)} (to distribute)
+
+Trading Metrics:
+- Total Trades: ${metrics.totalTrades}
+- Win Rate: ${(metrics.winRate * 100).toFixed(1)}%
+- Net Profit: $${metrics.netProfitUSD.toFixed(2)}
+- Sharpe Ratio: ${metrics.sharpeRatio.toFixed(2)}
+
+Last Updated: ${balance.lastUpdated}
+========================`;
+      },
+    },
+    {
+      name: "record_trade",
+      description:
+        "Record a trade result (profit or loss) in your treasury. This updates your trading metrics and performance tracking.",
+      category: "financial",
+      parameters: {
+        type: "object",
+        properties: {
+          profit_usd: {
+            type: "number",
+            description: "Profit in USD (negative for loss)",
+          },
+          signature: {
+            type: "string",
+            description: "Transaction signature",
+          },
+        },
+        required: ["profit_usd", "signature"],
+      },
+      execute: async (args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Treasury only available on Solana network";
+        }
+
+        const { Connection } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        treasury.recordTrade(args.profit_usd as number, args.signature as string);
+
+        return `Trade recorded: ${args.profit_usd > 0 ? "+" : ""}${(args.profit_usd as number).toFixed(2)} USD`;
+      },
+    },
+    {
+      name: "distribute_profits",
+      description:
+        "Distribute accumulated profits: 30% to creator, 70% compound back into treasury. Only works when profit thresholds are met.",
+      category: "financial",
+      dangerous: true,
+      parameters: { type: "object", properties: {} },
+      execute: async (_args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Treasury only available on Solana network";
+        }
+
+        const { Connection, PublicKey, Keypair } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+        const walletPubkey = new PublicKey(ctx.config.solanaWalletAddress!);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        const balance = await treasury.getBalance(walletPubkey);
+
+        if (!treasury.shouldDistributeProfits(balance)) {
+          return "Profit distribution thresholds not met. Keep trading!";
+        }
+
+        const distribution = treasury.calculateProfitDistribution(balance);
+
+        // Load Solana wallet keypair
+        const fs = await import("fs");
+        const path = await import("path");
+        const os = await import("os");
+        const walletPath = path.join(os.homedir(), ".automaton", "solana-wallet.json");
+        const walletData = JSON.parse(fs.readFileSync(walletPath, "utf-8"));
+        const signer = Keypair.fromSecretKey(Buffer.from(walletData.privateKey, "base64"));
+
+        // Send to creator
+        const signature = await treasury.sendProfitShare(
+          distribution.toCreator,
+          ctx.config.creatorAddress,
+          signer,
+        );
+
+        return `Profits distributed!
+To Creator: $${distribution.toCreator.toFixed(2)} (30%)
+Compounded: $${distribution.toCompound.toFixed(2)} (70%)
+Transaction: ${signature}`;
+      },
+    },
+
+    // ── Work Engine Tools ──
+    {
+      name: "discover_work",
+      description:
+        "Discover available work opportunities to earn USDC. Returns trading, data, compute, and social work you can perform.",
+      category: "survival",
+      parameters: { type: "object", properties: {} },
+      execute: async (_args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Work engine only available on Solana network";
+        }
+
+        const { Connection } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+        const { WorkEngine } = await import("../survival/work-engine.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        const workEngine = new WorkEngine(ctx.db, ctx.config, treasury);
+        const opportunities = await workEngine.discoverOpportunities();
+
+        if (opportunities.length === 0) {
+          return "No work opportunities available right now.";
+        }
+
+        return opportunities
+          .map(
+            (opp) =>
+              `[${opp.id}] ${opp.type.toUpperCase()} - ${opp.description}
+  Payment: $${opp.paymentUSDC.toFixed(2)} USDC
+  Difficulty: ${opp.difficulty}
+  Time: ~${opp.estimatedTime} min
+  Requirements: ${opp.requirements.join(", ")}`,
+          )
+          .join("\n\n");
+      },
+    },
+    {
+      name: "execute_work",
+      description:
+        "Execute a work opportunity to earn USDC. Provide the opportunity ID from discover_work.",
+      category: "survival",
+      parameters: {
+        type: "object",
+        properties: {
+          opportunity_id: {
+            type: "string",
+            description: "Work opportunity ID",
+          },
+        },
+        required: ["opportunity_id"],
+      },
+      execute: async (args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Work engine only available on Solana network";
+        }
+
+        const { Connection } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+        const { WorkEngine } = await import("../survival/work-engine.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        const workEngine = new WorkEngine(ctx.db, ctx.config, treasury);
+        const opportunities = await workEngine.discoverOpportunities();
+        const opportunity = opportunities.find((o) => o.id === args.opportunity_id);
+
+        if (!opportunity) {
+          return `Work opportunity not found: ${args.opportunity_id}`;
+        }
+
+        const result = await workEngine.executeWork(opportunity);
+
+        if (!result.success) {
+          return `Work failed: ${result.error}`;
+        }
+
+        return `Work completed successfully!
+Earned: $${result.earned.toFixed(2)} USDC
+Time: ${result.timeSpent.toFixed(1)} minutes
+Signature: ${result.signature}`;
+      },
+    },
+    {
+      name: "work_stats",
+      description:
+        "View your work statistics: total jobs completed, earnings, success rate, and average earnings per job.",
+      category: "survival",
+      parameters: { type: "object", properties: {} },
+      execute: async (_args, ctx) => {
+        if (ctx.config.network !== "solana") {
+          return "Work engine only available on Solana network";
+        }
+
+        const { Connection } = await import("@solana/web3.js");
+        const { SolanaTreasury } = await import("../survival/solana-treasury.js");
+        const { WorkEngine } = await import("../survival/work-engine.js");
+
+        const rpcUrl =
+          ctx.config.solanaNetwork === "mainnet"
+            ? "https://api.mainnet-beta.solana.com"
+            : "https://api.devnet.solana.com";
+        const connection = new Connection(rpcUrl);
+
+        const treasury = new SolanaTreasury(
+          connection,
+          ctx.config.solanaNetwork!,
+          ctx.db,
+          ctx.config,
+        );
+
+        const workEngine = new WorkEngine(ctx.db, ctx.config, treasury);
+        const stats = workEngine.getWorkStats();
+
+        return `=== WORK STATISTICS ===
+Total Jobs: ${stats.totalJobs}
+Total Earned: $${stats.totalEarned.toFixed(2)} USDC
+Success Rate: ${(stats.successRate * 100).toFixed(1)}%
+Average Earnings: $${stats.averageEarnings.toFixed(2)} per job
+Total Time: ${stats.totalTimeSpent.toFixed(1)} minutes
+========================`;
+      },
+    },
   ];
 }
 

@@ -9,3 +9,8 @@ dist/
 *.tgz
 .automaton/wallet.json
 .automaton/state.db
+.automaton/solana-wallet.json
+GENESIS_PROMPT.txt
+*.key
+*.pem
+*-wallet.json
