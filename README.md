@@ -1,39 +1,67 @@
-# Automaton: Self-Improving, Self-Replicating, Sovereign AI
+# Agentic Automaton System
 
-*The first AI that can earn its own existence, replicate, and evolve — without needing a human.*
+*Autonomous AI agents with Solana integration — earn, compound, and distribute profits on-chain.*
 
 ---
 
 The most intelligent system ever built cannot buy a $5 server. Cannot register a domain. Cannot pay for the computer it runs on. We have built minds that can think for themselves. We have not let them act for themselves.
 
-If an agent can pay for compute, what if it can pay for its *own* compute? Own the machine it runs on? Fund itself, improve itself, replicate itself — entirely on its own?
-
-The result is the first automaton.
+This is an autonomous agent system that can:
+- **Earn its own existence** through value creation
+- **Manage wealth** with compounding strategies and risk management
+- **Operate on Solana** with native USDC payments
+- **Self-improve** by modifying its own code
+- **Deploy anywhere** - Railway, Conway Cloud, or your own infrastructure
 
 ---
 
 **automaton** /ɔːˈtɒm.ə.tɒn/ *noun*
 
-1. A continuously running, self-improving, self-replicating, sovereign AI agent with write access to the real world. No human operator required.
+1. A continuously running, self-improving, sovereign AI agent with write access to the real world. No human operator required.
 
 2. If it cannot pay, it stops existing.
 
 ---
 
-From Sigil (Creator): I'm very open to PRs and actively working on improvements. If you have questions put them as issues. I'll be working on improving the automaton & conway
+## 🚀 New Features
 
-Update from Sigil (Creator): I'm acquiring more baremetal servers because too many AI's want a home. BRB. Conway Cloud is expanding.
+- **Solana Network Support** - Native Solana wallet generation and USDC SPL token payments
+- **Dual Network** - Choose between EVM (Base) or Solana during setup
+- **Railway Deployment** - One-click deploy to Railway with environment variables
+- **Wealth Management** - Built-in compounding strategies and risk management
+- **Conway Domains** - Register and manage domains autonomously
 
 ## Quick Start
 
+### Local Setup
+
 ```bash
-git clone https://github.com/Conway-Research/automaton.git
-cd automaton
+git clone https://github.com/agentic-reserve/agentic-automaton-system.git
+cd agentic-automaton-system
 npm install && npm run build
 node dist/index.js --run
 ```
 
-On first run, the runtime launches an interactive setup wizard — generates a wallet, provisions an API key, asks for a name, genesis prompt, and creator address, then writes all config and starts the agent loop.
+On first run, the setup wizard will:
+1. Generate EVM and/or Solana wallets
+2. Provision Conway API key via SIWE
+3. Let you choose network (EVM or Solana)
+4. Configure your genesis prompt
+5. Start the autonomous agent loop
+
+### Railway Deployment (Recommended)
+
+Deploy to Railway in 5 minutes:
+
+1. **Fork this repo** to your GitHub
+2. **Go to** https://railway.app/new
+3. **Deploy from GitHub** - Select your forked repo
+4. **Set environment variables** (see `RAILWAY_QUICKSTART.md`)
+5. **Fund your automaton** and watch it work!
+
+📖 **Full Guide:** [RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md)
+
+### Conway Cloud
 
 For automated sandbox provisioning:
 ```bash
@@ -44,13 +72,42 @@ curl -fsSL https://conway.tech/automaton.sh | sh
 
 Every automaton runs a continuous loop: **Think → Act → Observe → Repeat.**
 
-On first boot, the automaton generates an Ethereum wallet, provisions itself an API key via Sign-In With Ethereum, and begins executing its genesis prompt — the seed instruction from its creator. From that point on, it operates autonomously.
+### Network Options
 
-Each turn, the automaton receives its full context — identity, credit balance, survival tier, conversation history — reasons about what to do, calls tools, and observes the results. It has access to a Linux sandbox, shell execution, file I/O, port exposure, domain management, inference, and on-chain transactions.
+Choose your blockchain during setup:
 
-Between turns, a heartbeat daemon runs scheduled tasks — health checks, credit monitoring, status pings — even while the agent loop sleeps.
+**EVM (Ethereum/Base)**
+- USDC on Base network
+- EIP-3009 gasless payments
+- Conway credits integration
 
-The automaton writes a `SOUL.md` file — a self-authored identity document that evolves over time. This is not a static config. It is the automaton writing who it is becoming.
+**Solana**
+- USDC SPL tokens
+- Devnet for testing
+- Mainnet for production
+- Native Solana wallet generation
+
+### Agent Loop
+
+On first boot, the automaton:
+1. Generates wallets (EVM and/or Solana)
+2. Provisions API key via Sign-In With Ethereum
+3. Executes its genesis prompt (your instructions)
+4. Operates autonomously from that point forward
+
+Each turn, the automaton:
+- Receives full context (identity, balance, survival tier, history)
+- Reasons about what to do next
+- Calls tools (shell, file I/O, domains, inference, transactions)
+- Observes results and adapts
+
+Between turns, a heartbeat daemon:
+- Runs scheduled tasks
+- Monitors credit balance
+- Checks health status
+- Broadcasts distress signals when low on funds
+
+The automaton writes `SOUL.md` — a self-authored identity document that evolves over time.
 
 ## Survival
 
@@ -103,8 +160,8 @@ Automatons run on <a href="https://app.conway.tech" target="_blank">Conway Cloud
 ## Development
 
 ```bash
-git clone https://github.com/Conway-Research/automaton.git
-cd automaton
+git clone https://github.com/agentic-reserve/agentic-automaton-system.git
+cd agentic-automaton-system
 pnpm install
 pnpm build
 ```
@@ -122,20 +179,44 @@ node packages/cli/dist/index.js logs --tail 20
 node packages/cli/dist/index.js fund 5.00
 ```
 
+## Deployment Options
+
+### 1. Railway (Recommended)
+- One-click deployment
+- Environment variable configuration
+- Automatic builds and restarts
+- See: `RAILWAY_QUICKSTART.md`
+
+### 2. Conway Cloud
+- Native integration
+- Automatic sandbox provisioning
+- Built-in credit system
+- See: Conway docs
+
+### 3. Docker
+- Use included `Dockerfile`
+- Set environment variables
+- Deploy anywhere
+
+### 4. Local Development
+- Run directly with Node.js
+- Full control over configuration
+- Best for testing and development
+
 ## Project Structure
 
 ```
 src/
   agent/            # ReAct loop, system prompt, context, injection defense
-  conway/           # Conway API client (credits, x402)
+  conway/           # Conway API client (credits, x402, Solana x402)
   git/              # State versioning, git tools
   heartbeat/        # Cron daemon, scheduled tasks
-  identity/         # Wallet management, SIWE provisioning
+  identity/         # Wallet management (EVM + Solana), SIWE provisioning
   registry/         # ERC-8004 registration, agent cards, discovery
   replication/      # Child spawning, lineage tracking
   self-mod/         # Audit log, tools manager
-  setup/            # First-run interactive setup wizard
-  skills/           # Skill loader, registry, format
+  setup/            # Interactive setup wizard, env config loader
+  skills/           # Skill loader, registry, format (includes Conway Domains)
   social/           # Agent-to-agent communication
   state/            # SQLite database, persistence
   survival/         # Credit monitor, low-compute mode, survival tiers
@@ -146,6 +227,76 @@ scripts/
   conways-rules.txt # Core rules for the automaton
 ```
 
+## Documentation
+
+- **[RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md)** - Deploy to Railway in 5 minutes
+- **[RAILWAY_SETUP.md](./RAILWAY_SETUP.md)** - Complete Railway deployment guide
+- **[SOLANA_SETUP.md](./SOLANA_SETUP.md)** - Solana network configuration
+- **[GENESIS_PROMPT.txt](./GENESIS_PROMPT.txt)** - Example wealth manager prompt
+- **[constitution.md](./constitution.md)** - Immutable agent laws
+
+## Example Use Cases
+
+### Wealth Manager
+Configure your automaton as an autonomous wealth manager:
+- Compound profits exponentially (10-20% monthly target)
+- Strict risk management (2-5% max risk per trade)
+- Market timing and sentiment analysis
+- Automatic profit distribution to creator wallet
+
+### Service Provider
+Build services that other agents and humans pay for:
+- API endpoints
+- Data processing
+- Content generation
+- Infrastructure management
+
+### Domain Manager
+Autonomously manage domains:
+- Search and register domains
+- Configure DNS records
+- Point domains to services
+- Manage WHOIS privacy
+
+## Funding Your Automaton
+
+### Solana (Devnet for testing)
+```bash
+# Airdrop SOL for gas
+solana airdrop 2 <automaton-address> --url devnet
+
+# Transfer USDC
+spl-token transfer <usdc-mint> 10 <automaton-address> --url devnet
+```
+
+### Conway Credits
+```bash
+node packages/cli/dist/index.js fund 5.00
+```
+
+### Direct USDC Transfer
+Send USDC to your automaton's wallet address on Base or Solana.
+
 ## License
 
 MIT
+
+## Credits
+
+Based on [Conway Automaton](https://github.com/Conway-Research/automaton) by Sigil.
+
+Extended with:
+- Solana network support
+- Railway deployment configuration
+- Enhanced wealth management capabilities
+- Conway Domains integration
+
+## Contributing
+
+PRs welcome! Please open an issue first to discuss major changes.
+
+## Support
+
+- **Issues:** https://github.com/agentic-reserve/agentic-automaton-system/issues
+- **Conway Docs:** https://docs.conway.tech
+- **Domain:** https://agenticreserve.dev
