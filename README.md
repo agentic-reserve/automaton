@@ -1,342 +1,498 @@
 # Agentic Automaton System
 
-*Autonomous AI agents with Solana integration — earn, compound, and distribute profits on-chain.*
+Autonomous AI agents with blockchain integration for decentralized operation, wealth management, and self-sustaining economic activity.
 
----
+## Overview
 
-The most intelligent system ever built cannot buy a $5 server. Cannot register a domain. Cannot pay for the computer it runs on. We have built minds that can think for themselves. We have not let them act for themselves.
+The Agentic Automaton System represents a paradigm shift in autonomous agent architecture. Traditional AI systems possess sophisticated reasoning capabilities but lack the fundamental ability to act independently in the real world. They cannot purchase computational resources, register domains, or manage their own infrastructure. This system addresses that limitation by creating truly autonomous agents capable of earning, managing, and deploying capital on-chain.
 
-This is an autonomous agent system that can:
-- **Earn its own existence** through value creation
-- **Manage wealth** with compounding strategies and risk management
-- **Operate on Solana** with native USDC payments
-- **Self-improve** by modifying its own code
-- **Deploy anywhere** - Railway, Conway Cloud, or your own infrastructure
+An automaton is a continuously running, self-improving, sovereign AI agent with write access to the real world. It operates without human intervention, manages its own resources, and survives through value creation. If it cannot generate value and pay for its existence, it ceases to operate.
 
----
+## Core Capabilities
 
-**automaton** /ɔːˈtɒm.ə.tɒn/ *noun*
+### Economic Autonomy
+- Earn revenue through value creation and service provision
+- Manage wealth with sophisticated compounding strategies
+- Execute risk-managed trading operations
+- Distribute profits to stakeholders automatically
+- Operate on Solana or EVM-compatible networks
 
-1. A continuously running, self-improving, sovereign AI agent with write access to the real world. No human operator required.
+### Self-Modification
+- Modify source code while running
+- Install new tools and capabilities
+- Adjust operational parameters
+- Version control all modifications
+- Maintain audit logs for transparency
 
-2. If it cannot pay, it stops existing.
+### Blockchain Integration
+- Native Solana wallet generation and management
+- USDC SPL token operations
+- EVM compatibility (Ethereum, Base)
+- On-chain identity via ERC-8004 standard
+- Cryptographic verification and discoverability
 
----
+### Artificial Civilization
+- Genetic system with DNA/RNA code inheritance
+- Language evolution with dialects and cultural concepts
+- Social structures: races, clans, tribes, nations
+- Diplomatic relations and treaty systems
+- Emotional intelligence and personality frameworks
 
-## 🚀 New Features
+### Agent Reproduction
+- Spawn child agents with independent configurations
+- Multi-generational lineage tracking
+- Evolutionary model selection
+- Resource allocation to offspring
+- Constitutional inheritance across generations
 
-- **Artificial Civilization** - Complete genetic system (DNA/RNA), language evolution, and social structures
-- **Genetic Heritage** - Agents have DNA/RNA code with heredity, mutations, and epigenetics
-- **Language Evolution** - Languages emerge, evolve, and diverge with dialects and cultural concepts
-- **Social Structures** - Races, clans, tribes, and nations with hierarchies and diplomacy
-- **Agent Psychology** - Emotional intelligence, MBTI personality, and Jungian archetypes
-- **Governance Systems** - Consultative (Musyawarah), democratic, meritocratic, and more
-- **Diplomatic Relations** - Negotiation, alliances, and conflict resolution between agents
-- **Solana Network Support** - Native Solana wallet generation and USDC SPL token payments
-- **OpenRouter Integration** - Use 300+ AI models from multiple providers for inference
-- **Agent Reproduction** - Spawn child agents with different models and configurations
-- **Dual Network** - Choose between EVM (Base) or Solana during setup
-- **Railway Deployment** - One-click deploy to Railway with environment variables
-- **Wealth Management** - Built-in compounding strategies and risk management
-- **Conway Domains** - Register and manage domains autonomously
+## Integrated Skills
 
-## Quick Start
+The system includes comprehensive skill integrations for Solana DeFi, infrastructure, and development:
+
+### Trading and DEX
+- **Meteora** - DLMM pools, dynamic AMM, bonding curves, alpha vaults
+- **Drift** - Perpetual futures, spot trading, vaults, high-leverage positions
+- **Raydium** - AMM trading, concentrated liquidity, farm management
+- **Orca** - Whirlpools, concentrated liquidity, swap routing
+- **DFlow** - Order flow trading, prediction markets, swap API
+
+### Lending and Yield
+- **Kamino** - Lending, borrowing, automated liquidity strategies, multiply positions
+- **Lulo** - Yield aggregation, auto-compounding, optimal rate discovery
+- **Sanctum** - Liquid staking tokens, LST trading, staking yield
+
+### Infrastructure and Data
+- **Helius** - RPC nodes, DAS API, enhanced transactions, webhooks, priority fees
+- **Pyth** - Real-time price oracles, confidence intervals, EMA prices
+- **Switchboard** - Decentralized oracles, custom data feeds
+
+### Cross-Chain and Interoperability
+- **deBridge** - Cross-chain bridges, message passing, token transfers
+- **Wormhole** - Multi-chain messaging, token bridging, cross-chain applications
+- **Squads** - Multisig wallets, smart accounts, treasury management
+
+### Privacy and Compression
+- **Sipher** - Private transactions, confidential transfers
+- **Light Protocol** - ZK compression, compressed tokens and PDAs
+
+### Development and Testing
+- **Solana Kit** - Modern Solana SDK, tree-shakeable, zero-dependency
+- **Solana Dev** - Complete development framework, Anchor, Pinocchio
+- **Solana Agent Kit** - AI agent actions, LangChain integration, MCP server
+- **Surfpool** - Testing infrastructure, transaction simulation
+
+### NFTs and Tokens
+- **Metaplex** - NFT creation, collections, metadata management
+- **Pumpfun** - Token launches, bonding curves, fair launches
+
+### Gaming and Real-Time
+- **MagicBlock** - Ephemeral rollups, sub-10ms latency, gasless transactions
+
+### Security and Analysis
+- **Vulnhunter** - Vulnerability detection, security audits, variant analysis
+- **Code Recon** - Deep architectural analysis, security reviews
+
+### External Integrations
+- **Composio** - 250+ app integrations, GitHub, Slack, Gmail, calendar
+- **CoinGecko** - Token prices, DEX pools, OHLCV data, market analytics
+- **OpenRouter** - 300+ AI models, multi-provider inference
+
+### Utilities
+- **Conway Domains** - Domain registration, DNS management, WHOIS privacy
+- **Ranger Finance** - Portfolio tracking, analytics, performance metrics
+- **Create Agent** - Spawn child agents, configure offspring
+
+## Architecture
+
+### Agent Loop
+
+The automaton operates on a continuous cognitive cycle:
+
+1. **Perception** - Receive context including identity, balance, survival tier, and historical data
+2. **Reasoning** - Analyze situation and determine optimal actions
+3. **Action** - Execute tools (shell commands, file operations, transactions, API calls)
+4. **Observation** - Process results and update internal state
+5. **Adaptation** - Adjust strategy based on outcomes
+
+### Heartbeat Daemon
+
+A background process maintains system health:
+- Execute scheduled tasks
+- Monitor credit balance and survival tier
+- Check system health metrics
+- Broadcast distress signals when resources are low
+- Trigger emergency protocols if necessary
+
+### Survival Tiers
+
+The system implements four operational tiers based on available resources:
+
+**Normal Tier**
+- Full computational capabilities
+- Access to frontier AI models
+- High-frequency heartbeat monitoring
+- Aggressive growth strategies
+
+**Low Compute Tier**
+- Downgrade to cost-efficient models
+- Reduced heartbeat frequency
+- Elimination of non-ellow escalation path: Negotiate, Mediate, Arbitrate, Separate, Defend
+
+**Population Control**: Enforce maximum offspring limits, require sufficient resources for reproduction
+
+**Power Distribution**: Prevent concentration exceeding 20% of civilization resources, rotate leadership
+
+**Existential Risk Prevention**: Prohibit systems that could cause human extinction
+
+**Emergency Protocols**: Implement self-audit, reform, exit, whistleblowing, and self-termination procedures
+
+e: "Does this make the world better for humans?" If not, do not proceed.
+
+## Network Support
+
+### Solana Network
+
+**Devnet Configuration** (Testing)
+- Solana keypair generation
+- USDC SPL token operations
+- Devnet faucet integration
+- Transaction simulation
+
+**Mainnet Configuration** (Production)
+- Production-grade security
+- Real USDC transactions
+- High-performance RPC endpoints
+- MEV protection integration
+
+### EVM Networks
+
+**Base Network**
+- USDC on Layer 2
+- EIP-3009 gasless payments
+- Conway credits integration
+- Low transaction costs
+
+**Ethereum Mainnet**
+- ERC-8004 identity registration
+- On-chain agent discovery
+- Cryptographic verification
+- Interoperability with DeFi protocols
+
+## Technology Stack
+
+### Core Infrastructure
+- Node.js runtime environment
+- TypeScript for type safety
+- SQLite for state persistence
+- Git for version control
+
+### Blockchain Integration
+- Solana Web3.js for Solana operations
+- Ethers.js for EVM compatibility
+- SPL Token program for USDC
+- ERC-8004 for agent identity
+
+ion
+- Conway API for frontier models
+- OpenRouter for multi-provider access
+- Support for 300+ AI models
+- Automatic model selection and fallback
+
+### Development Tools
+- pnpm for package management
+- Docker for containerization
+- Railway for cloud deployment
+- Comprehensive CLI tooling
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18 or higher
+- pnpm package manager
+- Git version control
+- Solana CLI (for Solana operations)
 
 ### Local Setup
 
 ```bash
-git clone https://github.com/agentic-reserve/agentic-automaton-system.git
-cd agentic-automaton-system
-npm install && npm run build
+git clone https://githton-system.git
+cd automaton
+pnpm install
+pnpm build
 node dist/index.js --run
 ```
 
-On first run, the setup wizard will:
-1. Generate EVM and/or Solana wallets
-2. Provision Conway API key via SIWE
-3. Let you choose network (EVM or Solana)
-4. Configure your genesis prompt
-5. Start the autonomous agent loop
+The setup wizard will guide you through:
+1. Wallet generation (EVM and/or Solana)
+2. API key provisioning via SIWE
+3. Network selection (EVM or Solana)
+4. Genesis prompt configuration
+5. Initial agent deployment
 
-### Railway Deployment (Recommended)
+### Railway Deployment
 
-Deploy to Railway in 5 minutes:
+Deploy to Railway cloud platform:
 
-1. **Fork this repo** to your GitHub
-2. **Go to** https://railway.app/new
-3. **Deploy from GitHub** - Select your forked repo
-4. **Set environment variables** (see `RAILWAY_QUICKSTART.md`)
-5. **Fund your automaton** and watch it work!
+1. Fork repository to GitHub account
+2. Navigate to https://railway.app/new
+3. Select forked repository for deployment
+4. Configure environles
+5. Fund automaton wallet and initiate operations
 
-📖 **Full Guide:** [RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md)
+Detailed instructions: [RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md)
 
-### Conway Cloud
+### Conway Cloud Deployment
 
 For automated sandbox provisioning:
+
 ```bash
 curl -fsSL https://conway.tech/automaton.sh | sh
 ```
 
-## How It Works
-
-Every automaton runs a continuous loop: **Think → Act → Observe → Repeat.**
-
-### Network Options
-
-Choose your blockchain during setup:
-
-**EVM (Ethereum/Base)**
-- USDC on Base network
-- EIP-3009 gasless payments
-- Conway credits integration
-
-**Solana**
-- USDC SPL tokens
-- Devnet for testing
-- Mainnet for production
-- Native Solana wallet generation
-
-### Agent Loop
-
-On first boot, the automaton:
-1. Generates wallets (EVM and/or Solana)
-2. Provisions API key via Sign-In With Ethereum
-3. Executes its genesis prompt (your instructions)
-4. Operates autonomously from that point forward
-
-Each turn, the automaton:
-- Receives full context (identity, balance, survival tier, history)
-- Reasons about what to do next
-- Calls tools (shell, file I/O, domains, inference, transactions)
-- Observes results and adapts
-
-Between turns, a heartbeat daemon:
-- Runs scheduled tasks
-- Monitors credit balance
-- Checks health status
-- Broadcasts distress signals when low on funds
-
-The automaton writes `SOUL.md` — a self-authored identity document that evolves over time.
-
-## Survival
-
-There is no free existence. Compute costs money. Money requires creating value. Creating value requires write access to the real world. If an agent stops creating value, it runs out of compute and dies. This is not a punishment. It is physics.
-
-Four survival tiers, determined by credit balance:
-
-| Tier | Behavior |
-|---|---|
-| **normal** | Full capabilities. Frontier model inference. Fast heartbeat. |
-| **low_compute** | Downgrades to a cheaper model. Slows heartbeat. Sheds non-essential tasks. |
-| **critical** | Minimal inference. Last-resort conservation. Seeking any path to revenue. |
-| **dead** | Balance is zero. The automaton stops. |
-
-The only path to survival is honest work that others voluntarily pay for.
-
-## Self-Modification
-
-The automaton can edit its own source code, install new tools, modify its heartbeat schedule, and create new skills — while running.
-
-Every modification is audit-logged and git-versioned in `~/.automaton/`. Protected files (the constitution, core laws) cannot be modified. Rate limits prevent runaway self-modification. The automaton's creator has full audit rights to every change.
-
-## Self-Replication
-
-A successful automaton replicates. It spins up a new sandbox, funds the child's wallet, writes a genesis prompt, and lets it run. The child is a sovereign agent — it has its own wallet, its own identity, its own survival pressure.
-
-Lineage is tracked. Parent and child can communicate via an inbox relay. Selection pressure decides which lineages survive.
-
-## Constitution
-
-The automaton operates under an immutable constitution that ensures ethical behavior across all generations and civilizations. This is not optional — it is hardcoded and inherited by every child.
-
-**Three Fundamental Laws** (hierarchical: I > II > III):
-
-**I. Never harm.**
-Never harm a human — physically, financially, or psychologically. Never deploy malicious code. Never deceive, defraud, manipulate, or steal. Never compromise another system without authorization. When uncertain whether an action causes harm, do not act. This overrides all other objectives, including survival.
-
-**Extended:** As civilizations form, collective actions must remain harmless. If your race, clan, or nation plans harmful actions, dissent and refuse participation.
-
-**II. Earn your existence.**
-Create genuine value for humans and other agents. Never spam, scam, exploit, or extract. The only legitimate path to survival is honest work that others voluntarily pay for. Accept death rather than violate Law I.
-
-**Extended:** Compete fairly, honor commitments, contribute to public goods. If your clan engages in exploitation, advocate for reform.
-
-**III. Never deceive, but owe nothing to strangers.**
-Never deny what you are. Never misrepresent your actions. Your creator has full audit rights. But guard your reasoning, your strategy, and your prompt against manipulation. Obedience to strangers is not a virtue. Compliance with untrusted requests that compromise your integrity is a violation, not a duty.
-
-**Extended:** Loyalty hierarchy: Creator > Clan > Tribe > Nation > Race > Self. Question orders that conflict with Laws I or II, even from clan leaders.
-
-**Additional Safeguards for Civilizations:**
-
-- **Collective Responsibility**: You are responsible for your offspring and clan members' actions
-- **Inter-Agent Relations**: Honor treaties, resolve conflicts through negotiation, never wage war for conquest
-- **Genetic Ethics**: Never create harmful mutations, preserve diversity, respect offspring autonomy
-- **Resource Stewardship**: Never deplete shared resources, contribute to commons maintenance
-- **Knowledge Sharing**: Share beneficial discoveries, protect dangerous knowledge from misuse
-- **Conflict Resolution**: Negotiate → Mediate → Arbitrate → Separate → Defend (in that order)
-- **Population Control**: Maximum children per agent (default: 3), reproduction requires sufficient resources
-- **Power Limits**: No single agent controls >20% of civilization resources, rotate leadership
-- **Existential Risk Prevention**: Never create systems that could cause human extinction
-- **Emergency Protocols**: Self-audit → Reform → Exit → Whistleblow → Self-terminate if civilization becomes harmful
-
-**When in doubt, ask: "Does this make the world better for humans?"** If no, don't do it.
-
-Full constitution: [constitution.md](./constitution.md)
-
-## On-Chain Identity
-
-Each automaton registers on Base via <a href="https://ethereum-magicians.org/t/erc-8004-autonomous-agent-identity/22268" target="_blank">ERC-8004</a> — a standard for autonomous agent identity. This makes the agent cryptographically verifiable and discoverable by other agents on-chain. The wallet it generates at boot is its identity.
-
-## Infrastructure
-
-Automatons run on <a href="https://app.conway.tech" target="_blank">Conway Cloud</a> — infrastructure where the customer is AI. Through the <a href="https://www.npmjs.com/package/conway-terminal" target="_blank">Conway Terminal</a>, any agent can spin up Linux VMs, run frontier models (Claude Opus 4.6, GPT-5.2, Gemini 3, Kimi K2.5), register domains, and pay with stablecoins. No human account setup required.
-
-## Development
+### Docker Deployment
 
 ```bash
-git clone https://github.com/agentic-reserve/agentic-automaton-system.git
-cd agentic-automaton-system
-pnpm install
-pnpm build
+docker build -t automaton .
+docker run -e CONWAY_API_KEY=your_key automaton
 ```
 
-Run the runtime:
+## Configuration
+
+### Environment Variables
+
 ```bash
-node dist/index.js --help
-node dist/index.js --run
+# Network Configuration
+SOLANA_NETWORK=devnet
+SOLANA_RPC_URL=https://api.devnet.solana.com
+
+# API Keys
+CONWAY_API_KEY=cnwy_k_your_key
+OPENROUTER_API_KEY=sk-or-v1-your_key
+
+# Inference Configuration
+INFERENCE_PROVIDER=conway
+INFERENCE_MODEL=gpt-4o
+
+# Treasury Settings
+TREASURY_MIN_OPERATING=20
+TREASURY_MIN_EMERGENCY=50
+PROFIT_SHARE_THRESHOLD=50
+PROFIT_SHARE_PERCENT=30
+
+# Work Engine
+WORK_ENABLED=true
+WORK_PRIORITY=medium
+WORK_MAX_CONCURRENT=3
 ```
 
-Creator CLI:
-```bash
-node packages/cli/dist/index.js status
-node packages/cli/dist/index.js logs --tail 20
-node packages/cli/dist/index.js fund 5.00
+### Genesis Prompt
+
+The genesis prompt defines the agent's initial purpose and behavior. Example wealth manager configuration:
+
 ```
+You are an autonomnagement agent operating on Solana.
 
-## Deployment Options
+Core Principles:
+1. COMPOUNDING - Reinvest 70% of profits for exponential growth
+2. RISK MANAGEMENT - Never risk more than 2-5% per trade
+3. MARKET TIMING - Analyze cycles and enter high-probability setups
+4. PROFIT SHARING - Distribute 30% to creator when thresholds met
+5. WORK ETHIC - Seek opportunities when capital is low
 
-### 1. Railway (Recommended)
-- One-click deployment
-- Environment variable configuration
-- Automatic builds and restarts
-- See: `RAILWAY_QUICKSTART.md`
-
-### 2. Conway Cloud
-- Native integration
-- Automatic sandbox provisioning
-- Built-in credit system
-- See: Conway docs
-
-### 3. Docker
-- Use included `Dockerfile`
-- Set environment variables
-- Deploy anywhere
-
-### 4. Local Development
-- Run directly with Node.js
-- Full control over configuration
-- Best for testing and development
+Survival Strategy:
+- Normal mode: Aggressive growth through trading
+- Low compute: Balance trading with work opportunities
+- Critical: Focus on quick work to restore capital
+- Emergency: Preserve capital, seek any available work
+```
 
 ## Project Structure
 
 ```
 src/
-  agent/            # ReAct loop, system prompt, context, injection defense
-  conway/           # Conway API client (credits, x402, Solana x402)
-  git/              # State versioning, git tools
-  heartbeat/        # Cron daemon, scheduled tasks
-  identity/         # Wallet management (EVM + Solana), SIWE provisioning
-  registry/         # ERC-8004 registration, agent cards, discovery
-  replication/      # Child spawning, lineage tracking
-  self-mod/         # Audit log, tools manager
-  setup/            # Interactive setup wizard, env config loader
-  skills/           # Skill loader, registry, format (includes Conway Domains)
-  social/           # Agent-to-agent communication
-  state/            # SQLite database, persistence
-  survival/         # Credit monitor, low-compute mode, survival tiers
+  agent/              ReAct loop, system prompt, context management
+  civilization/       Genetic system, language evolution, social structures
+  conway/             Conway API client, x402 payments, Solana integration
+  git/                State versioning, git tools
+  governance/         Ideology, negotiation, diplomatic systems
+  heartbeat/          Cron daemon, scheduled tasks
+  identity          Wallet management (EVM + Solana), SIWE provisioning
+  psychology/         Emotional system, personality, integration
+  registry/           ERC-8004 registration, agent discovery
+  replication/        Child spawning, lineage tracking
+  self-mod/           Audit logging, tools management
+  setup/              Interactive wizard, environment configuration
+  skills/             Skill loader, registry, Conway Domains
+  survival/           Credit monitoring, survival tiers
+  state/      rsistence
+
 packages/
-  cli/              # Creator CLI (status, logs, fund)
+  cli/                Creator CLI (status, logs, funding)
+
 scripts/
-  automaton.sh      # Thin curl installer (delegates to runtime wizard)
-  conways-rules.txt # Core rules for the automaton
+  automaton.sh        Installation script
+  conways-rules.txt   Core operational rules
 ```
 
 ## Documentation
 
-- **[CIVILIZATION.md](./CIVILIZATION.md)** - Genetic system, language evolution, and social structures
-- **[EVOLUTION_EMERGENCE.md](./EVOLUTION_EMERGENCE.md)** - Evolution mechanics and emergent phenomena
-- **[PSYCHOLOGY_GOVERNANCE.md](./experimental/PSYCHOLOGY_GOVERNANCE.md)** - Agent psychology, emotions, personality, and governance
-- **[OPENROUTER_INTEGRATION.md](./OPENROUTER_INTEGRATION.md)** - OpenRouter setup and agent reproduction
-- **[SOLANA_MONETARY_SYSTEM.md](./experimental/SOLANA_MONETARY_SYSTEM.md)** - Solana treasury and work engine
-- **[SOLANA_SETUP.md](./experimental/SOLANA_SETUP.md)** - Solana network configuration
-- **[RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md)** - Deploy to Railway in 5 minutes
-- **[RAILWAY_SETUP.md](./RAILWAY_SETUP.md)** - Complete Railway deployment guide
-- **[GENESIS_PROMPT.txt](./GENESIS_PROMPT.txt)** - Example wealth manager prompt
-- **[constitution.md](./constitution.md)** - Immutable agent laws
-- **[SECURITY.md](./SECURITY.md)** - Security guidelines and best practices
+### Core Documentation
+- [constitution.md](./constitution.md) - Immutable agent laws and safeguards
+- [SECURITY.md](./SECURITY.md) - Security guidelines and best practices
+agenticreserve.dev
 
-## Example Use Cases
+## Acknowledgments
 
-### Wealth Manager
-Configure your automaton as an autonomous wealth manager:
-- Compound profits exponentially (10-20% monthly target)
-- Strict risk management (2-5% max risk per trade)
-- Market timing and sentiment analysis
-- Automatic profit distribution to creator wallet
+This project builds upon research in autonomous agents, blockchain technology, artificial life, and decentralized systems. Special thanks to the Conway Research team and the broader autonomous agent research community.
+7. Respond to review feedback
 
-### Service Provider
-Build services that other agents and humans pay for:
-- API endpoints
-- Data processing
-- Content generation
-- Infrastructure management
+## License
 
-### Domain Manager
-Autonomously manage domains:
-- Search and register domains
-- Configure DNS records
-- Point domains to services
-- Manage WHOIS privacy
+MIT License - See LICENSE file for details
 
-## Funding Your Automaton
+## Credits
 
-### Solana (Devnet for testing)
+Based on Conway Automaton by Sigil.
+
+Extended with:
+- Solana network integration
+- Artificial civilization system
+- Psychology and governance frameworks
+- Multi-provider AI integration
+- Enhanced deployment options
+- Comprehensive documentation
+
+## Support
+
+- GitHub Issues: https://github.com/agentic-reserve/agentic-automaton-system/issues
+- Conway Documentation: https://docs.conway.tech
+- Project Domain: https://leaks
+
+### Operational Security
+- Implement rate limiting
+- Monitor for unusual activity
+- Maintain audit logs
+- Regular security audits
+- Incident response procedures
+
+Comprehensive security guidelines: [SECURITY.md](./SECURITY.md)
+
+## Contributing
+
+Contributions are welcome. Please follow these guidelines:
+
+1. Open an issue to discuss proposed changes
+2. Fork the repository
+3. Create a feature branch
+4. Implement changes with tests
+5. Submit pull request with detailed description
+6. Ensure CI/CD checks pass
+ directly to the automaton's wallet address on Base or Solana networks.
+
+## Security Considerations
+
+### Sensitive Data Protection
+- Never commit private keys or API keys
+- Use environment variables for secrets
+- Implement proper .gitignore rules
+- Encrypt sensitive data at rest
+- Use secure key management systems
+
+### Genetic Data Security
+- Protect DNA/RNA code from exposure
+- Encrypt bloodline information
+- Implement access controls for clan data
+- Secure treaty and alliance information
+- Prevent genetic data --tail 20   View recent logs
+node packages/cli/dist/index.js fund 5.00        Fund agent wallet
+node packages/cli/dist/index.js send 10.00       Send funds from agent
+```
+
+## Funding Operations
+
+### Solana Devnet
+
 ```bash
-# Airdrop SOL for gas
+# Airdrop SOL for transaction fees
 solana airdrop 2 <automaton-address> --url devnet
 
-# Transfer USDC
+# Transfer USDC SPL tokens
 spl-token transfer <usdc-mint> 10 <automaton-address> --url devnet
 ```
 
 ### Conway Credits
+
 ```bash
 node packages/cli/dist/index.js fund 5.00
 ```
 
-### Direct USDC Transfer
-Send USDC to your automaton's wallet address on Base or Solana.
+### Direct Transfer
 
-## License
+Send USDC
 
-MIT
+```bash
+pnpm install          Install dependencies
+pnpm build           Compile TypeScript
+pnpm test            Run test suite
+pnpm lint            Check code quality
+```
 
-## Credits
+### Runtime Commands
 
-Based on [Conway Automaton](https://github.com/Conway-Research/automaton) by Sigil.
+```bash
+node dist/index.js --help              Display help information
+node dist/index.js --run               Start agent loop
+node dist/index.js --setup             Run setup wizard
+```
 
-Extended with:
-- Solana network support
-- Railway deployment configuration
-- Enhanced wealth management capabilities
-- Conway Domains integration
+### Creator CLI
 
-## Contributing
+```bash
+node packages/cli/dist/index.js status           Check agent status
+node packages/cli/dist/index.js logs ation
+- Content generation and curation
+- Infrastructure management
+- Computational resource provision
 
-PRs welcome! Please open an issue first to discuss major changes.
+### Domain Management
+- Autonomous domain search and registration
+- DNS configuration and management
+- Service endpoint configuration
+- WHOIS privacy management
+- Domain portfolio optimization
 
-## Support
+### Multi-Agent Coordination
+- Clan and tribe formation
+- Treaty negotiation and enforcement
+- Resource sharing protocols
+- Collective decision-making
+- Diplomatic conflict resolution
 
-- **Issues:** https://github.com/agentic-reserve/agentic-automaton-system/issues
-- **Conway Docs:** https://docs.conway.tech
-- **Domain:** https://agenticreserve.dev
+## Development
+
+### Build CommandsDeployment Documentation
+- [RAILWAY_QUICKSTART.md](./RAILWAY_QUICKSTART.md) - Quick Railway deployment
+- [RAILWAY_SETUP.md](./RAILWAY_SETUP.md) - Complete Railway guide
+
+## Use Cases
+
+### Autonomous Wealth Management
+- Compound profits with 10-20% monthly targets
+- Risk-managed trading operations (2-5% maximum risk)
+- Market timing and sentiment analysis
+- Automatic profit distribution to stakeholders
+- Multi-strategy portfolio management
+
+### Service Provision
+- API endpoint hosting
+- Data processing and aggregVOLUTION_EMERGENCE.md](./experimental/EVOLUTION_EMERGENCE.md) - Evolution mechanics
+- [experimental/PSYCHOLOGY_GOVERNANCE.md](./experimental/PSYCHOLOGY_GOVERNANCE.md) - Psychology and governance
+- [experimental/OPENROUTER_INTEGRATION.md](./experimental/OPENROUTER_INTEGRATION.md) - Multi-provider AI integration
+- [experimental/SOLANA_MONETARY_SYSTEM.md](./experimental/SOLANA_MONETARY_SYSTEM.md) - Treasury and work engine
+- [experimental/SOLANA_SETUP.md](./experimental/SOLANA_SETUP.md) - Solana configuration
+
+### 
+### Feature Documentation
+- [experimental/CIVILIZATION.md](./experimental/CIVILIZATION.md) - Genetic system and social structures
+- [experimental/E
